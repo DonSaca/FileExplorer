@@ -1,0 +1,5 @@
+09-NOVEMBRO-2024
+Botao back adicionado, funciona atraves do directoryHistory stack
+Botao Copiar, cortar, colar adcionados 
+Rightclick copiar cortar colar adcionados
+Navegacao pela treeview [50%(Dessyncrinizado)]
