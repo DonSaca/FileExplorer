@@ -32,33 +32,36 @@ namespace FileExplorer
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tvwNaviPanel = new System.Windows.Forms.TreeView();
-            this.lvMainPanel = new System.Windows.Forms.ListView();
-            this.imgMainPanel = new System.Windows.Forms.ImageList(this.components);
             this.imglNaviPanel = new System.Windows.Forms.ImageList(this.components);
-            this.txtAddressBar = new System.Windows.Forms.TextBox();
-            this.cbDrives = new System.Windows.Forms.ComboBox();
-            this.cmsRightClickMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.statstripInfo = new System.Windows.Forms.StatusStrip();
-            this.cbViewMode = new System.Windows.Forms.ComboBox();
+            this.lvMainPanel = new System.Windows.Forms.ListView();
             this.cName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cSize = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.imgMainPanel = new System.Windows.Forms.ImageList(this.components);
+            this.txtAddressBar = new System.Windows.Forms.TextBox();
+            this.cbDrives = new System.Windows.Forms.ComboBox();
+            this.cmsRightClickMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiCut = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiCopy = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiPaste = new System.Windows.Forms.ToolStripMenuItem();
+            this.statstripInfo = new System.Windows.Forms.StatusStrip();
+            this.cbViewMode = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnUP = new System.Windows.Forms.Button();
             this.btnColar = new System.Windows.Forms.Button();
             this.btnCopiar = new System.Windows.Forms.Button();
             this.btnCortar = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.cmsRightClickMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // tvwNaviPanel
             // 
+            this.tvwNaviPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.tvwNaviPanel.ImageIndex = 0;
             this.tvwNaviPanel.ImageList = this.imglNaviPanel;
             this.tvwNaviPanel.Location = new System.Drawing.Point(0, 94);
@@ -70,8 +73,17 @@ namespace FileExplorer
             this.tvwNaviPanel.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.tvwNaviPanel_BeforeExpand);
             this.tvwNaviPanel.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvwNaviPanel_AfterSelect);
             // 
+            // imglNaviPanel
+            // 
+            this.imglNaviPanel.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imglNaviPanel.ImageStream")));
+            this.imglNaviPanel.TransparentColor = System.Drawing.Color.Transparent;
+            this.imglNaviPanel.Images.SetKeyName(0, "Folder.png");
+            // 
             // lvMainPanel
             // 
+            this.lvMainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lvMainPanel.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.cName,
             this.cType,
@@ -89,6 +101,26 @@ namespace FileExplorer
             this.lvMainPanel.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvMainPanel_MouseDoubleClick);
             this.lvMainPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lvMainPanel_MouseUp);
             // 
+            // cName
+            // 
+            this.cName.Text = "Name";
+            this.cName.Width = 250;
+            // 
+            // cType
+            // 
+            this.cType.Text = "Type";
+            this.cType.Width = 100;
+            // 
+            // cSize
+            // 
+            this.cSize.Text = "Size";
+            this.cSize.Width = 100;
+            // 
+            // cDate
+            // 
+            this.cDate.Text = "Date Modified";
+            this.cDate.Width = 150;
+            // 
             // imgMainPanel
             // 
             this.imgMainPanel.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgMainPanel.ImageStream")));
@@ -96,14 +128,10 @@ namespace FileExplorer
             this.imgMainPanel.Images.SetKeyName(0, "folder.png");
             this.imgMainPanel.Images.SetKeyName(1, "File.png");
             // 
-            // imglNaviPanel
-            // 
-            this.imglNaviPanel.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imglNaviPanel.ImageStream")));
-            this.imglNaviPanel.TransparentColor = System.Drawing.Color.Transparent;
-            this.imglNaviPanel.Images.SetKeyName(0, "Folder.png");
-            // 
             // txtAddressBar
             // 
+            this.txtAddressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAddressBar.Enabled = false;
             this.txtAddressBar.Location = new System.Drawing.Point(262, 3);
             this.txtAddressBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -133,6 +161,27 @@ namespace FileExplorer
             this.cmsRightClickMenu.Size = new System.Drawing.Size(127, 100);
             this.cmsRightClickMenu.Click += new System.EventHandler(this.cmsRightClickMenu_Click);
             // 
+            // tsmiCut
+            // 
+            this.tsmiCut.Name = "tsmiCut";
+            this.tsmiCut.Size = new System.Drawing.Size(126, 32);
+            this.tsmiCut.Text = "Cut";
+            this.tsmiCut.Click += new System.EventHandler(this.tsmiCut_Click);
+            // 
+            // tsmiCopy
+            // 
+            this.tsmiCopy.Name = "tsmiCopy";
+            this.tsmiCopy.Size = new System.Drawing.Size(126, 32);
+            this.tsmiCopy.Text = "Copy";
+            this.tsmiCopy.Click += new System.EventHandler(this.tsmiCopy_Click);
+            // 
+            // tsmiPaste
+            // 
+            this.tsmiPaste.Name = "tsmiPaste";
+            this.tsmiPaste.Size = new System.Drawing.Size(126, 32);
+            this.tsmiPaste.Text = "Paste";
+            this.tsmiPaste.Click += new System.EventHandler(this.tsmiPaste_Click);
+            // 
             // statstripInfo
             // 
             this.statstripInfo.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -159,46 +208,43 @@ namespace FileExplorer
             this.cbViewMode.TabIndex = 6;
             this.cbViewMode.SelectedIndexChanged += new System.EventHandler(this.cbViewMode_SelectedIndexChanged);
             // 
-            // cName
+            // label1
             // 
-            this.cName.Text = "Name";
-            this.cName.Width = 250;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(694, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 20);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Cortar";
             // 
-            // cType
+            // label2
             // 
-            this.cType.Text = "Type";
-            this.cType.Width = 100;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(779, 37);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 20);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Copiar";
             // 
-            // cSize
+            // label3
             // 
-            this.cSize.Text = "Size";
-            this.cSize.Width = 100;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(875, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 20);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Colar";
             // 
-            // cDate
+            // btnUP
             // 
-            this.cDate.Text = "Date Modified";
-            this.cDate.Width = 150;
-            // 
-            // tsmiCut
-            // 
-            this.tsmiCut.Name = "tsmiCut";
-            this.tsmiCut.Size = new System.Drawing.Size(126, 32);
-            this.tsmiCut.Text = "Cut";
-            this.tsmiCut.Click += new System.EventHandler(this.tsmiCut_Click);
-            // 
-            // tsmiCopy
-            // 
-            this.tsmiCopy.Name = "tsmiCopy";
-            this.tsmiCopy.Size = new System.Drawing.Size(126, 32);
-            this.tsmiCopy.Text = "Copy";
-            this.tsmiCopy.Click += new System.EventHandler(this.tsmiCopy_Click);
-            // 
-            // tsmiPaste
-            // 
-            this.tsmiPaste.Name = "tsmiPaste";
-            this.tsmiPaste.Size = new System.Drawing.Size(126, 32);
-            this.tsmiPaste.Text = "Paste";
-            this.tsmiPaste.Click += new System.EventHandler(this.tsmiPaste_Click);
+            this.btnUP.BackgroundImage = global::FileExplorer.Properties.Resources.up;
+            this.btnUP.Location = new System.Drawing.Point(338, 33);
+            this.btnUP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnUP.Name = "btnUP";
+            this.btnUP.Size = new System.Drawing.Size(48, 58);
+            this.btnUP.TabIndex = 14;
+            this.btnUP.UseVisualStyleBackColor = true;
+            this.btnUP.Click += new System.EventHandler(this.btnUP_Click);
             // 
             // btnColar
             // 
@@ -248,38 +294,12 @@ namespace FileExplorer
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(694, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 20);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Cortar";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(779, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 20);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Copiar";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(875, 33);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 20);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Colar";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1183, 694);
+            this.Controls.Add(this.btnUP);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -328,6 +348,7 @@ namespace FileExplorer
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnUP;
     }
 }
 

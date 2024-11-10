@@ -264,8 +264,23 @@ namespace FileExplorer
                         PopulateListView(currentPath);
                     }
                 }
+
+                else
+                {
+                    string path = Path.Combine(txtAddressBar.Text, selectedItem.Text);
+                    try
+                    {
+                        System.Diagnostics.Process.Start(path);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao abrir o file: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
             }
         }
+
 
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -356,6 +371,28 @@ namespace FileExplorer
             catch (Exception ex)
             {
                 MessageBox.Show($"Só ºDeus sabe {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnUP_Click(object sender, EventArgs e)
+        {
+
+            string currentPath = txtAddressBar.Text;
+
+            
+            DirectoryInfo parentDir = Directory.GetParent(currentPath);
+
+            if (parentDir != null)
+            {
+                string parentPath = parentDir.FullName;
+
+                
+                txtAddressBar.Text = parentPath;
+                PopulateListView(parentPath);
+            }
+            else
+            {
+                MessageBox.Show("Já não da pra voltar mais, você ja está na root.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
