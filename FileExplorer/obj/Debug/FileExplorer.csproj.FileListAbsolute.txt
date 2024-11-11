@@ -39,3 +39,5 @@ C:\Users\i220097\Downloads\FileExplorer\FileExplorer\obj\Debug\FileExplorer.cspr
 C:\Users\i220097\Downloads\FileExplorer\FileExplorer\obj\Debug\FileExplorer.exe
 C:\Users\i220097\Downloads\FileExplorer\FileExplorer\obj\Debug\FileExplorer.pdb
 C:\Users\i220097\Downloads\FileExplorer\FileExplorer\obj\Debug\FileExplorer.FormTexto.resources
+C:\Users\vanes\Downloads\FileExplorer\FileExplorer\obj\Debug\FileExplorer.FormTexto.resources
+C:\Users\vanes\Downloads\FileExplorer\FileExplorer\obj\Debug\FileExplorer.BinaryWriterForm.resources

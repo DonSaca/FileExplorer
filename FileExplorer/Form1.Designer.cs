@@ -340,7 +340,7 @@ namespace FileExplorer
         private System.Windows.Forms.ListView lvMainPanel;
         private System.Windows.Forms.ImageList imglNaviPanel;
         private System.Windows.Forms.ImageList imgMainPanel;
-        private System.Windows.Forms.TextBox txtAddressBar;
+        public System.Windows.Forms.TextBox txtAddressBar;
         private System.Windows.Forms.ComboBox cbDrives;
         private System.Windows.Forms.ContextMenuStrip cmsRightClickMenu;
         private System.Windows.Forms.StatusStrip statstripInfo;
