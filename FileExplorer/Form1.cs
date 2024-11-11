@@ -395,5 +395,11 @@ namespace FileExplorer
                 MessageBox.Show("Já não da pra voltar mais, você ja está na root.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void btnCriarTxt_Click(object sender, EventArgs e)
+        {
+            FormTexto formTexto = new FormTexto();
+            formTexto.Show();
+        }
     }
 }

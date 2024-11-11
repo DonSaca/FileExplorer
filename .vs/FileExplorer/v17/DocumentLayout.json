@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\vanes\\Downloads\\FileExplorer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CCD1F66D-BFD2-4E4B-979E-1F8B17FD013A}|FileExplorer\\FileExplorer.csproj|c:\\users\\vanes\\downloads\\fileexplorer\\fileexplorer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCD1F66D-BFD2-4E4B-979E-1F8B17FD013A}|FileExplorer\\FileExplorer.csproj|solutionrelative:fileexplorer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CCD1F66D-BFD2-4E4B-979E-1F8B17FD013A}|FileExplorer\\FileExplorer.csproj|c:\\users\\vanes\\downloads\\fileexplorer\\fileexplorer\\formtexto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CCD1F66D-BFD2-4E4B-979E-1F8B17FD013A}|FileExplorer\\FileExplorer.csproj|solutionrelative:fileexplorer\\formtexto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CCD1F66D-BFD2-4E4B-979E-1F8B17FD013A}|FileExplorer\\FileExplorer.csproj|c:\\users\\vanes\\downloads\\fileexplorer\\fileexplorer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{CCD1F66D-BFD2-4E4B-979E-1F8B17FD013A}|FileExplorer\\FileExplorer.csproj|solutionrelative:fileexplorer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCD1F66D-BFD2-4E4B-979E-1F8B17FD013A}|FileExplorer\\FileExplorer.csproj|C:\\Users\\vanes\\Downloads\\FileExplorer\\fileexplorer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCD1F66D-BFD2-4E4B-979E-1F8B17FD013A}|FileExplorer\\FileExplorer.csproj|solutionrelative:fileexplorer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,13 +30,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\vanes\\Downloads\\FileExplorer\\FileExplorer\\Form1.cs",
               "RelativeDocumentMoniker": "FileExplorer\\Form1.cs",
               "ToolTip": "C:\\Users\\vanes\\Downloads\\FileExplorer\\FileExplorer\\Form1.cs",
               "RelativeToolTip": "FileExplorer\\Form1.cs",
-              "ViewState": "AgIAAFIBAAAAAAAAAAAlwGoBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAH4BAAAAAAAAAAAjwJABAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-09T16:51:56.249Z",
               "EditorCaption": ""
@@ -47,6 +51,18 @@
               "RelativeToolTip": "FileExplorer\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-09T16:46:17.125Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormTexto.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\vanes\\Downloads\\FileExplorer\\FileExplorer\\FormTexto.cs",
+              "RelativeDocumentMoniker": "FileExplorer\\FormTexto.cs",
+              "ToolTip": "C:\\Users\\vanes\\Downloads\\FileExplorer\\FileExplorer\\FormTexto.cs [Design]",
+              "RelativeToolTip": "FileExplorer\\FormTexto.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T21:16:19.822Z",
               "EditorCaption": " [Design]"
             }
           ]
