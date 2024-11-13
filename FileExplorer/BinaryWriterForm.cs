@@ -30,14 +30,14 @@ namespace FileExplorer
                 case "UTF-8":
                     SelectedEncoding = Encoding.UTF8;
                     break;
-                case "Unicode":
+                case "Unicode(UTF-16)":
                     SelectedEncoding = Encoding.Unicode;
                     break;
                 case "ASCII":
                     SelectedEncoding = Encoding.ASCII;
                     break;
                 default:
-                    MessageBox.Show("Please select a valid encoding option.");
+                    MessageBox.Show("Escolha uma opcao valida.");
                     return;
             }
 
@@ -62,7 +62,7 @@ namespace FileExplorer
         private void BinaryWriterForm_Load(object sender, EventArgs e)
         {
             cbEncode.Items.Add("UTF-8");
-            cbEncode.Items.Add("Unicode"); // UTF-16
+            cbEncode.Items.Add("Unicode(UTF-16)"); // UTF-16
             cbEncode.Items.Add("ASCII");
             cbEncode.SelectedIndex = 0;
         }

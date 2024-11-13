@@ -6,3 +6,9 @@ Navegacao pela treeview [50%(Dessyncrinizado)]
 
 10-NOVEMBRO-2024
 Duploclick agora abre files 
+
+-----------
+12-NOVEMBRO-2024
+Agora cria ficheiros .bin e .txt 
+Da pra escolher o encoding na criacao
+Agora tem o form ChooseReadModeForm

@@ -52,8 +52,7 @@ namespace FileExplorer
 
         private void btnBinaryWriter_Click(object sender, EventArgs e)
         {
-            //BinaryWriterForm BinWriterForm = new BinaryWriterForm();
-            //BinWriterForm.ShowDialog();
+          
 
             using (BinaryWriterForm binWriterForm = new BinaryWriterForm())
             {

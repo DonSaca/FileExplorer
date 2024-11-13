@@ -164,24 +164,24 @@ namespace FileExplorer
         }
         private void PopulateListView(string path)
         {
-            lvMainPanel.Items.Clear(); // Clear previous items
+            lvMainPanel.Items.Clear(); 
 
             
             foreach (var dir in System.IO.Directory.GetDirectories(path))
             {
                 var dirInfo = new System.IO.DirectoryInfo(dir);
-                ListViewItem item = new ListViewItem(dirInfo.Name, 0); // Assuming 0 is folder icon index
+                ListViewItem item = new ListViewItem(dirInfo.Name, 0); 
                 item.SubItems.Add("Folder"); // Type
                 item.SubItems.Add(""); // Size
                 item.SubItems.Add(dirInfo.LastWriteTime.ToString()); // Date Modified
                 lvMainPanel.Items.Add(item);
             }
 
-            // Add files to ListView
+            
             foreach (var file in System.IO.Directory.GetFiles(path))
             {
                 var fileInfo = new System.IO.FileInfo(file);
-                ListViewItem item = new ListViewItem(fileInfo.Name, 1); // Assuming 1 is file icon index
+                ListViewItem item = new ListViewItem(fileInfo.Name, 1);
                 item.SubItems.Add(fileInfo.Extension); // Type
                 item.SubItems.Add(fileInfo.Length.ToString()); // Size
                 item.SubItems.Add(fileInfo.LastWriteTime.ToString()); // Date Modified
@@ -257,9 +257,9 @@ namespace FileExplorer
                         PopulateListView(currentPath);
 
                     }
-                    catch (Exception )
+                    catch (Exception ex )
                     {
-                        MessageBox.Show("Só Deus sabe, mas provavelmete vc n tem acesso a esta pasta", "Erro!",
+                        MessageBox.Show($"Só Deus sabe, mas provavelmete vc n tem acesso a esta pasta \r\n {ex.Message}", "Erro!",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtAddressBar.Text = currentPath;
                         PopulateListView(currentPath);
@@ -268,19 +268,93 @@ namespace FileExplorer
 
                 else
                 {
+
                     string path = Path.Combine(txtAddressBar.Text, selectedItem.Text);
-                    try
+
+                    if (Path.GetExtension(path).ToLower() == ".txt")
                     {
-                        System.Diagnostics.Process.Start(path);
+
+                        using (ChooseReadModeForm ChooseReadForm = new ChooseReadModeForm())
+                        {
+                            
+                            if (ChooseReadForm.ShowDialog() == DialogResult.OK)
+                            {
+                                try
+                                {
+                                    switch (ChooseReadForm.SelectedReadMode)
+                                    {
+                                        case "Notepad++":
+                                            System.Diagnostics.Process.Start(path);
+                                            break;
+                                        case "StreamReader":
+
+                                            int posChar = int.Parse(ChooseReadForm.posChar);
+                                            int posLinha = int.Parse(ChooseReadForm.posLine);
+
+                                            using (StreamReader reader = new StreamReader(path))
+                                            {
+                                                int charEscolhido;
+                                                for(int i =0; i<=posChar;)
+                                                {
+                                                    reader.Read();
+                                                    if(i==posChar)
+                                                    {
+                                                        charEscolhido = reader.Read();
+                                                    }
+                                                    i++;
+                                                }
+
+                                                
+                                               
+                                            }
+
+                                            using (StreamReader reader = new StreamReader(path))
+                                            {
+                                                string content = reader.ReadToEnd();
+                                                char thirdCharacter = content[2]; // Index 2 is the 3rd character
+                                                
+                                            }
+                                            break;
+                                        case "BinaryReader":
+
+                                            break;
+                                        default:
+                                            MessageBox.Show("Escolha uma opcao valida.");
+                                            return;
+                                    }
+                                }
+                                catch(Exception ex)
+                                {
+                                    MessageBox.Show($"Só Deus saba oque causou isso \r\n {ex.Message}");
+                                }
+                            }
+                            else
+                            {
+                                
+                            }
+
+                        }
+                            MessageBox.Show($"Specific operation for .txt file: {path}", "TXT File", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show($"Erro ao abrir o file: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        try
+                        {
+                            System.Diagnostics.Process.Start(path);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Erro ao abrir o file: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
 
             }
         }
+
+
 
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -401,6 +475,19 @@ namespace FileExplorer
         {
             FormTexto formTexto = new FormTexto();
             formTexto.Show();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PopulateListView(txtAddressBar.Text);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

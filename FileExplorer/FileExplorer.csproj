@@ -52,6 +52,12 @@
     <Compile Include="BinaryWriterForm.Designer.cs">
       <DependentUpon>BinaryWriterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChooseReadModeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseReadModeForm.Designer.cs">
+      <DependentUpon>ChooseReadModeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BinaryWriterForm.resx">
       <DependentUpon>BinaryWriterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseReadModeForm.resx">
+      <DependentUpon>ChooseReadModeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
