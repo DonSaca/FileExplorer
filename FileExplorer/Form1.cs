@@ -287,35 +287,126 @@ namespace FileExplorer
                                             System.Diagnostics.Process.Start(path);
                                             break;
                                         case "StreamReader":
+                                            
+                                                int posChar = int.Parse(ChooseReadForm.posChar);
+                                                int posLinha = int.Parse(ChooseReadForm.posLine);
+                                            
+                                           
 
-                                            int posChar = int.Parse(ChooseReadForm.posChar);
-                                            int posLinha = int.Parse(ChooseReadForm.posLine);
+                                            char charAtPosition;
+                                            string lineAtPosition;
 
                                             using (StreamReader reader = new StreamReader(path))
                                             {
-                                                int charEscolhido;
-                                                for(int i =0; i<=posChar;)
+                                                charAtPosition = '\0';  
+                                                int currentPos = 0;
+                                                while (currentPos <= posChar)
                                                 {
-                                                    reader.Read();
-                                                    if(i==posChar)
+                                                    int charRead = reader.Read();
+                                                    if (charRead == -1) break; // End of file
+
+                                                    if (currentPos == posChar)
                                                     {
-                                                        charEscolhido = reader.Read();
+                                                        charAtPosition = (char)charRead;
+                                                        break;
                                                     }
-                                                    i++;
+                                                    currentPos++;
                                                 }
 
-                                                
-                                               
                                             }
 
                                             using (StreamReader reader = new StreamReader(path))
                                             {
-                                                string content = reader.ReadToEnd();
-                                                char thirdCharacter = content[2]; // Index 2 is the 3rd character
                                                 
+                                                lineAtPosition = string.Empty;
+                                                int currentLine = 0;
+                                                while (currentLine <= posLinha)
+                                                {
+                                                    string line = reader.ReadLine();
+                                                    if (line == null) break; // End of file
+
+                                                    if (currentLine == posLinha)
+                                                    {
+                                                        lineAtPosition = line;
+                                                        break;
+                                                    }
+                                                    currentLine++;
+                                                }
+                                            }
+
+                                            
+                                            MessageBox.Show($"O {posChar + 1}º caracter é '{charAtPosition}'\n A {posLinha + 1}ª linha é: {lineAtPosition}");
+
+                                            using (StreamReader reader = new StreamReader(path))
+                                            {
+                                                string todoOFile = reader.ReadToEnd();
+                                                MessageBox.Show(todoOFile, $"Conteuto intero do {path}");
                                             }
                                             break;
                                         case "BinaryReader":
+
+                                            posChar = int.Parse(ChooseReadForm.posChar);
+                                            posLinha = int.Parse(ChooseReadForm.posLine);
+
+                                            char charAtBinaryPosition;
+                                            string lineAtBinaryPosition;
+
+                                            using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open)))
+                                            {
+                                                // Get the character at posChar
+                                                reader.BaseStream.Seek(posChar, SeekOrigin.Begin);
+                                                charAtBinaryPosition = reader.ReadChar();
+                                            }
+
+                                            using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open)))
+                                            {
+                                                // Get the line at posLine
+                                                reader.BaseStream.Seek(0, SeekOrigin.Begin);
+                                                int currentLine = 0;
+                                                lineAtBinaryPosition = string.Empty;
+                                                List<char> lineBuffer = new List<char>();
+
+                                                while (currentLine <= posLinha)
+                                                {
+                                                    try
+                                                    {
+                                                        char ch = reader.ReadChar();
+                                                        if (ch == '\n' || ch == '\r')
+                                                        {
+                                                            // End of line
+                                                            if (ch == '\n' || (ch == '\r' && reader.PeekChar() == '\n'))
+                                                            {
+                                                                reader.ReadChar(); // Skip newline character
+                                                            }
+                                                            if (currentLine == posLinha)
+                                                            {
+                                                                lineAtBinaryPosition = new string(lineBuffer.ToArray());
+                                                                break;
+                                                            }
+                                                            lineBuffer.Clear();
+                                                            currentLine++;
+                                                        }
+                                                        else
+                                                        {
+                                                            lineBuffer.Add(ch);
+                                                        }
+                                                    }
+                                                    catch (EndOfStreamException)
+                                                    {
+                                                        break; // Reached the end of the file
+                                                    }
+                                                }
+                                            }
+
+                                            
+                                            MessageBox.Show($"O {posChar + 1}º caracter é '{charAtBinaryPosition}'\n A {posLinha + 1}ª linha é: {lineAtBinaryPosition}");
+
+                                           
+                                            using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open)))
+                                            {
+                                                string fullContent = new string(reader.ReadChars((int)reader.BaseStream.Length));
+                                                MessageBox.Show(fullContent, $"Conteuto intero do {path} (Binario)");
+                                            }
 
                                             break;
                                         default:
@@ -323,7 +414,15 @@ namespace FileExplorer
                                             return;
                                     }
                                 }
-                                catch(Exception ex)
+                                catch (ArgumentNullException ex)
+                                {
+                                    MessageBox.Show("Preencha as caixas de texto com numeros inteiros", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                }
+                                catch (ArgumentException ex)
+                                {
+                                    MessageBox.Show("Preencha as caixas de texto com numeros inteiros", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                }
+                                catch (Exception ex)
                                 {
                                     MessageBox.Show($"Só Deus saba oque causou isso \r\n {ex.Message}");
                                 }
@@ -334,7 +433,7 @@ namespace FileExplorer
                             }
 
                         }
-                            MessageBox.Show($"Specific operation for .txt file: {path}", "TXT File", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                           
 
 
                     }

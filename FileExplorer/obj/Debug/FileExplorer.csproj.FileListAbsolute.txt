@@ -54,3 +54,4 @@ C:\Users\i220097\Downloads\FileExplorer-master\FileExplorer\obj\Debug\FileExplor
 C:\Users\i220097\Downloads\FileExplorer-master\FileExplorer\obj\Debug\FileExplorer.exe
 C:\Users\i220097\Downloads\FileExplorer-master\FileExplorer\obj\Debug\FileExplorer.pdb
 C:\Users\i220097\Downloads\FileExplorer-master\FileExplorer\obj\Debug\FileExplorer.ChooseReadModeForm.resources
+C:\Users\vanes\Downloads\FileExplorer\FileExplorer\obj\Debug\FileExplorer.ChooseReadModeForm.resources

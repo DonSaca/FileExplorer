@@ -12,3 +12,6 @@ Duploclick agora abre files
 Agora cria ficheiros .bin e .txt 
 Da pra escolher o encoding na criacao
 Agora tem o form ChooseReadModeForm
+13-NOVEMBRO-2024
+Clickar num txt chama o ChooseReadModeForm
+ChooseReadModeForm ja tem funcionalidades
